@@ -73,5 +73,76 @@ namespace MF.Service
         {
             return products.Where(p => p.MyCategory.Equals(category)).ToList();
         }
+        //Partie 2/Q14)a
+        public IList<Product>Get5Chemical(double price)
+        {
+            var result = from p in products
+                         where p.Price > price
+                         select p;
+            return result.Take(5).ToList();
+        }
+        //Partie 2/Q14)b
+        public IList<Product> GetProductPrice(double price)
+        {
+            var result = from p in products
+                         where p.Price > price
+                         select p;
+            return result.Skip(2).ToList();
+        }
+        //Partie 2/Q14)c
+        public double GetAveragePrice()
+        {
+            var result = from p in products
+
+                         select p.Price;
+            return result.Average();
+        }
+        //Partie 2/Q14)d
+        public Product GetMaxPrice()
+        {
+            var result = from p in products
+                         select p.Price;
+            var maxPrice = result.Max();
+            var result2 = from p in products
+                          where p.Price.Equals(maxPrice)
+                          select p;
+            return result2.FirstOrDefault();
+        }
+        //Partie 2/Q14)e
+        public int GetCountProduct(string city)
+        {
+            var result = from p in products
+                         where p is Chimical && ((Chimical)p).City.Equals(city)
+                         select p;
+            return result.Count();
+        }
+        //Partie 2/Q14)f
+        public IEnumerable<Product> GetChemicalCity()
+        {
+            var result = from p in products
+                         where p is Chimical 
+                         orderby((Chimical)p).City ascending
+                         select p;
+            return result;
+        }
+        //Partie 2/Q14)f
+        public IEnumerable<IGrouping<string,Product>> GetChemicalGroupByCity()
+        {
+            var result = from p in products
+                         where p is Chimical
+                         orderby ((Chimical)p).City ascending
+                         group p by ((Chimical)p).City;
+            foreach (var grp in result)
+            {
+                Console.WriteLine(grp.Key);
+                foreach (var p in grp)
+                {
+                    p.GetDetails();
+
+                }
+
+            }             
+            return result;
+        }
     }
 }
