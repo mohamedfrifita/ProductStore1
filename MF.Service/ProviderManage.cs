@@ -13,13 +13,15 @@ namespace MF.Service
         {
             this.providers = providers;
         }
-       public IList<Provider>GetProvidersByName(string name)
+        //Partie 2/Q13)a
+        public IList<Provider>GetProvidersByName(string name)
         {
             var result = from p in providers
                          where p.UserName.Contains(name)
                          select p;
             return result.ToList();
         }
+        //Partie 2/Q13)b
         public Provider GetFirstProvidersByName(string name)
         {
             var result = from p in providers
@@ -27,6 +29,7 @@ namespace MF.Service
                          select p;
             return result.FirstOrDefault();
         }
+        //Partie 2/Q13)c
         public Provider GetProvidersById(int id)
         {
             var result = from p in providers

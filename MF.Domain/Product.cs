@@ -13,6 +13,7 @@ namespace MF.Domain
         public int ProductId { get; set; }
         public int Quantity { get; set; }
         public static int Nb { get; set; } = 0;
+        public string Image { get; set; }
 
         public Product()
         {

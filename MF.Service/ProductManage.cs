@@ -125,7 +125,7 @@ namespace MF.Service
                          select p;
             return result;
         }
-        //Partie 2/Q14)f
+        //Partie 2/Q14)g
         public IEnumerable<IGrouping<string,Product>> GetChemicalGroupByCity()
         {
             var result = from p in products

@@ -2,6 +2,7 @@
 using MF.Domain;
 using System.Collections.Generic;
 using MF.Service;
+using MF.Data;
 
 namespace MF.Console
 {
@@ -74,10 +75,10 @@ namespace MF.Console
             // prov1.GetDetails();
 
 
-            //date 26/02/2021//Partie 1/Q10
-            Product p1 = new Product() { Name = "drod1", DateProd = DateTime.Now, Quantity = 12 };
-            Product p2 = new Chimical() { Name = "prod2", DateProd = DateTime.Now, Quantity = 15, City = "Ghazela", LabName = "Lab1" };
-            Product p3 = new Product() { Name = "drod3", DateProd = DateTime.Now, Quantity = 10 };
+            //Partie 1/Q10
+            //Product p1 = new Product() { Name = "drod1", DateProd = DateTime.Now, Quantity = 12 };
+            //Product p2 = new Chimical() { Name = "prod2", DateProd = DateTime.Now, Quantity = 15, City = "Ghazela", LabName = "Lab1" };
+            //Product p3 = new Product() { Name = "drod3", DateProd = DateTime.Now, Quantity = 10 };
             //Product p4 = new Product() { Name = "prod4", DateProd = DateTime.Now, Quantity = 111 };
             //Product p5 = new Product() { Name = "prod5", DateProd = DateTime.Now, Quantity = 120 };
             //Product p6 = new Product() { Name = "prod6", DateProd = DateTime.Now, Quantity = 123 };
@@ -86,7 +87,7 @@ namespace MF.Console
             //Category c2 = new Category() { Name = "cat2" };
             //Category c3 = new Category() { Name = "cat3" };
 
-            Provider prov1 = new Provider() { Password = "123456", ConfirmPassword = "123456", UserName = "moha44" };
+            // Provider prov1 = new Provider() { Password = "123456", ConfirmPassword = "123456", UserName = "moha44" };
             //Provider prov2 = new Provider() { Password = "123456", ConfirmPassword = "123456", UserName = "hiba11" };
             //Provider prov3 = new Provider() { Password = "123456", ConfirmPassword = "123456", UserName = "nabil22" };
             //Provider prov4 = new Provider() { Password = "123456", ConfirmPassword = "123456", UserName = "ahmed33" };
@@ -120,20 +121,21 @@ namespace MF.Console
 
 
 
-            IList<Product> products = new List<Product>() { p1, p2, p3 };
+            //IList<Product> products = new List<Product>() { p1, p2, p3 };
 
 
 
 
-            ProductManage pm = new ProductManage(products);
-            //pm.FindProduct2("d");
-            System.Console.WriteLine(pm.FindProduct2("d"));
-            pm.UpperName();
+            //ProductManage pm = new ProductManage(products);
+            ////pm.FindProduct2("d");
+            //System.Console.WriteLine(pm.FindProduct2("d"));
+            //pm.UpperName();
 
             //ProviderManage mp = new ProviderManage(providers);
             //mp.GetProvidersByName("moha44");
-          
 
+            PSContext context = new PSContext();
+            System.Console.WriteLine("le base est");
             System.Console.ReadLine();
 
 
